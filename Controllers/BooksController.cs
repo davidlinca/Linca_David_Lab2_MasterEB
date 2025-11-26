@@ -24,6 +24,8 @@ namespace Linca_David_Lab2_MasterEB.Controllers
         {
             ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
+            ViewData["AuthorSortParm"] = sortOrder == "Author" ? "author_desc" : "Author";
+
             ViewData["CurrentFilter"] = searchString;
 
             var books = from b in _context.Book
@@ -51,6 +53,12 @@ namespace Linca_David_Lab2_MasterEB.Controllers
                     break;
                 case "price_desc":
                     books = books.OrderByDescending(b => b.Price);
+                    break;
+                case "Author":
+                    books = books.OrderBy(b => b.FullName);
+                    break;
+                case "author_desc":
+                    books = books.OrderByDescending(b => b.FullName);
                     break;
                 default:
                     books = books.OrderBy(b => b.Title);
