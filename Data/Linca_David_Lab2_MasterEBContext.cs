@@ -19,5 +19,6 @@ namespace Linca_David_Lab2_MasterEB.Data
         public DbSet<Linca_David_Lab2_MasterEB.Models.Genre> Genre { get; set; } = default!;
 
         public DbSet<Linca_David_Lab2_MasterEB.Models.Author> Author { get; set; } = default!;
+        public DbSet<Linca_David_Lab2_MasterEB.Models.Order> Order { get; set; } = default!;
     }
 }
