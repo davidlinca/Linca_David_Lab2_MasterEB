@@ -34,6 +34,8 @@ namespace Linca_David_Lab2_MasterEB.Controllers
             }
 
             var author = await _context.Author
+                .Include(a => a.Books)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (author == null)
             {
