@@ -15,9 +15,12 @@ namespace Linca_David_Lab2_MasterEB.Data
             {
                 if (context.Book.Any())
                 {
-                    return;
+                    return; // BD a fost creata anterior
                 }
 
+                // Logica originală pentru Genre, Author, Book și Customer, mutată în comentarii:
+
+                /*
                 var genres = new Genre[]
                 {
                    new Genre { Name = "Roman" },
@@ -36,47 +39,44 @@ namespace Linca_David_Lab2_MasterEB.Data
                 };
                 context.Author.AddRange(authors);
                 context.SaveChanges();
+                */
 
-                context.Book.AddRange(
-                    new Book
-                    {
-                        Title = "Baltagul",
-                        AuthorID = authors.Single(a => a.LastName == "Sadoveanu").ID,
-                        Price = Decimal.Parse("22"),
-                        GenreID = genres.Single(g => g.Name == "Roman").ID
-                    },
-                    new Book
-                    {
-                        Title = "Enigma Otiliei",
-                        AuthorID = authors.Single(a => a.LastName == "Calinescu").ID,
-                        Price = Decimal.Parse("18"),
-                        GenreID = genres.Single(g => g.Name == "Roman").ID
-                    },
-                    new Book
-                    {
-                        Title = "Maytrei",
-                        AuthorID = authors.Single(a => a.LastName == "Eliade").ID,
-                        Price = Decimal.Parse("27"),
-                        GenreID = genres.Single(g => g.Name == "Nuvela").ID
-                    }
-                );
+                //context.Genre.AddRange(
+                //    new Genre { Name = "Roman" },
+                //    new Genre { Name = "Nuvela" },
+                //    new Genre { Name = "Poezie" }
+                //    );
 
-                context.Customer.AddRange(
-                    new Customer
-                    {
-                        Name = "Popescu Marcela",
-                        Adress = "Str. Plopilor, nr. 24",
-                        BirthDate = DateTime.Parse("1979-09-01")
-                    },
-                    new Customer
-                    {
-                        Name = "Mihailescu Cornel",
-                        Adress = "Str. Bucuresti, nr.45, ap. 2",
-                        BirthDate = DateTime.Parse("1969-07-08")
-                    }
-                );
+                //context.Customer.AddRange(
+                //    new Customer { Name = "Popescu Marcela", Adress = "Str. Plopilor, nr. 24", BirthDate = DateTime.Parse("1979-09-01") },
+                //    new Customer { Name = "Mihailescu Cornel", Adress = "Str. Bucuresti, nr.45, ap. 2", BirthDate = DateTime.Parse("1969-07-08") }
+                //    );
 
-                context.SaveChanges();
+                //context.Book.AddRange(
+                //    new Book
+                //    {
+                //        Title = "Baltagul",
+                //        AuthorID = authors.Single(a => a.LastName == "Sadoveanu").ID,
+                //        Price = Decimal.Parse("22"),
+                //        GenreID = genres.Single(g => g.Name == "Roman").ID
+                //    },
+                //    new Book
+                //    {
+                //        Title = "Enigma Otiliei",
+                //        AuthorID = authors.Single(a => a.LastName == "Calinescu").ID,
+                //        Price = Decimal.Parse("18"),
+                //        GenreID = genres.Single(g => g.Name == "Roman").ID
+                //    },
+                //    new Book
+                //    {
+                //        Title = "Maytrei",
+                //        AuthorID = authors.Single(a => a.LastName == "Eliade").ID,
+                //        Price = Decimal.Parse("27"),
+                //        GenreID = genres.Single(g => g.Name == "Nuvela").ID
+                //    }
+                //    );
+
+                //context.SaveChanges(); 
             }
         }
     }
